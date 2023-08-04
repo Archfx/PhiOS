@@ -32,9 +32,9 @@ PhiOS is a minimal operating system kernel that can be used on the smallest RISC
 ## Test
 
 ```shell
-cd test/hw
+cd Test
 #compile hardware
 iverilog -s testbench -o ice.vvp  hw/icebreaker_tb.v hw/icebreaker.v hw/ice40up5k_spram.v hw/spimemio.v hw/simpleuart.v hw/picosoc.v hw/picorv32.v hw/spiflash.v -DNO_ICE40_DEFAULT_ASSIGNMENTS  `yosys-config --datdir/ice40/cells_sim.v
-#simulate hardware
-vvp -N ice.vvp ../fw/bootapp.hex +firmware=../fw/bootapp.hex
+#simulate hardware with kernel
+vvp -N ice.vvp ../src/bootapp.hex +firmware=../src/bootapp.hex
 ```
