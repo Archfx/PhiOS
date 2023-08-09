@@ -27,8 +27,8 @@ module testbench;
 	event ser_sample;
 
 	initial begin
-		$dumpfile("testbench.vcd");
-		$dumpvars(0, testbench);
+		// $dumpfile("testbench.vcd");
+		// $dumpvars(0, testbench);
 
 		repeat (6) begin
 			repeat (50000) @(posedge clk);
