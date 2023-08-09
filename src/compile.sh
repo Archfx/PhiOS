@@ -16,3 +16,13 @@ riscv32-unknown-elf-gcc -Os -mabi=ilp32 -march=rv32imc -ffreestanding -nostdlib 
 riscv32-unknown-elf-objcopy boot.elf --pad-to=0x4000 --gap-fill=0x00 -O verilog  boot.hex
 riscv32-unknown-elf-objcopy app.elf -O verilog  app.hex
 cat boot.hex app.hex > bootapp.hex
+
+
+
+
+riscv32-unknown-elf-gcc -nostdlib -fno-builtin -mcmodel=medany -march=rv32ima -mabi=ilp32 -T os.lds -o os.elf start.S sys.s lib.c os.c
+
+
+# riscv32-unknown-elf-objcopy boot.elf --pad-to=0x4000 --gap-fill=0x00 -O verilog  boot.hex
+riscv32-unknown-elf-objcopy os.elf -O verilog  os.hex
+cat boot.hex os.hex > bootos.hex

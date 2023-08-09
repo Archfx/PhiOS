@@ -1,5 +1,5 @@
 
-
+.equ STACK_SIZE, 512
 .section .text
 
 
@@ -39,6 +39,7 @@ addi x30, zero, 0
 addi x31, zero, 0
 
 
+
 # zero initialize entire scratchpad memory
 li a0, 0x00000000
 setmemloop:
@@ -70,6 +71,9 @@ blt a0, a1, loop_init_bss
 end_init_bss:
 
 
+
+
+# la   sp, stacks + STACK_SIZE
 # call main
 call main
 loop:
@@ -142,3 +146,6 @@ ret
 
 .balign 4
 flashio_worker_end:
+
+# stacks:
+#     .skip STACK_SIZE 
