@@ -32,7 +32,7 @@ module testbench;
 
 		repeat (6) begin
 			repeat (50000) @(posedge clk);
-			$display("+50000 cycles");
+			// $display("+50000 cycles");
 		end
 		$finish;
 	end
@@ -114,9 +114,20 @@ module testbench;
 		repeat (ser_half_period) @(posedge clk);
 		-> ser_sample; // stop bit
 
-		if (buffer < 32 || buffer >= 127)
-			$display("Serial data: %d", buffer);
-		else
-			$display("Serial data: '%c'", buffer);
+		if (buffer == 8'h0d)
+			$write("\n");
+		else if (buffer == 8'h0a)
+			$write("\n");
+		else begin
+			if (buffer < 32 || buffer >= 127)
+				$write("%d", buffer);
+			else
+				$write("%c", buffer);
+		end
+
+		// if (buffer < 32 || buffer >= 127)
+		// 	$$write("%d", buffer);
+		// else
+		// 	$$write("%c", buffer);
 	end
 endmodule

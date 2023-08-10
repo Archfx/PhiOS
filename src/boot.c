@@ -9,6 +9,7 @@ int main(void) {
   (*(volatile uint32_t*)0x02000008) = 0x6F; // Write o to UART
   (*(volatile uint32_t*)0x02000008) = 0x6F; // Write o to UART
   (*(volatile uint32_t*)0x02000008) = 0x74; // Write t to UART
+  (*(volatile uint32_t*)0x02000008) = 0x0D; // Write newline to UART
 
 
 
