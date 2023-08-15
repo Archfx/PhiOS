@@ -2,7 +2,7 @@
 #include "os.h"
 
 #define STACK_SIZE 128
-uint32_t task0_stack[STACK_SIZE];
+reg_t task0_stack[STACK_SIZE];
 struct context ctx_os;
 struct context ctx_task;
 

@@ -26,16 +26,16 @@ module testbench;
 	localparam ser_half_period = 53;
 	event ser_sample;
 
-	initial begin
-		// $dumpfile("testbench.vcd");
-		// $dumpvars(0, testbench);
+	// initial begin
+	// 	// $dumpfile("testbench.vcd");
+	// 	// $dumpvars(0, testbench);
 
-		repeat (6) begin
-			repeat (50000) @(posedge clk);
-			// $display("+50000 cycles");
-		end
-		$finish;
-	end
+	// 	// repeat (6) begin
+	// 	// 	repeat (50000) @(posedge clk);
+	// 	// 	// $display("+50000 cycles");
+	// 	// end
+	// 	$finish;
+	// end
 
 	integer cycle_cnt = 0;
 
@@ -58,15 +58,15 @@ module testbench;
 	wire flash_io2;
 	wire flash_io3;
 
-	always @(leds) begin
-		#1 $display("%b", leds);
-	end
+	// always @(leds) begin
+	// 	#1 $display("%b", leds);
+	// end
 
 	icebreaker #(
 		// We limit the amount of memory in simulation
 		// in order to avoid reduce simulation time
 		// required for intialization of RAM
-		.MEM_WORDS(256)
+		.MEM_WORDS(1024)
 	) uut (
 		.clk      (clk      ),
 		.led1     (led1     ),

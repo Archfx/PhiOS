@@ -2,7 +2,13 @@
 
 PhiOS is a minimal operating system kernel that can be used on the smallest RISCV core that exists at present.
 
-## Features
+## Features 
+
+1. [Context Switch](/context_switch/): process of saving and restoring the state of a running process or thread by the operating system scheduler to enable multitasking and efficient resource utilization.
+
+## TODO Features
+
+
 
 1. Task Scheduler: A lightweight task scheduler to manage and switch between tasks efficiently, typically using a cooperative or simple preemptive scheduling approach.
 
